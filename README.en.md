@@ -36,6 +36,8 @@ The screenshots show an actual assignment of the two-state tunneling system Homo
 
 `Experimental spectrum + initial prediction → LLWP assignment → LIN → SPFIT fit → SPCAT prediction → current.cat → next assignment round`
 
+This workflow uses LLWP for line assignment. See the [official LLWP guide](https://llwp.astro.uni-koeln.de/docs.html) for installation, importing spectra and CAT predictions, and saving LIN assignments. LLWP is described in [Bonah et al. (2022)](https://doi.org/10.1016/j.jms.2022.111674).
+
 <div align="center">
   <img src="pickett-runner/screenshots/01-input.png" width="900" alt="Pickett Runner LIN, PAR and INT input settings">
   <br>
@@ -57,20 +59,28 @@ See the [Pickett Runner user guide](pickett-runner/README.en.md) for details, or
 
 ## AI Research Workflow Skill (Agent Skill)
 
-This repository also includes an open-format AI agent domain skill, [`microwave-spectroscopy-workflow`](skills/microwave-spectroscopy-workflow/SKILL.md) (compatible with Antigravity, Codex, Cursor, and Claude Code), designed to support:
+This repository also includes an open-format AI agent domain skill, [`microwave-spectroscopy-workflow`](skills/microwave-spectroscopy-workflow/SKILL.md), designed to support:
 
 - Literature search and [Zotero tagging](skills/microwave-spectroscopy-workflow/references/zotero-profile.md) for gas-phase rotational spectroscopy, molecular clusters, and microsolvation;
 - Organizing CREST / Gaussian / ORCA conformer calculations while preserving original identifiers and energy conventions;
 - Comparing calculated rotational constants, dipole components, and nuclear quadrupole tensors against SPFIT / SPCAT (Pickett Runner) fits;
 - Progress reports, assignment evidence audits, and manuscript/figure presentation.
 
-**Quick install (Antigravity plugin)**:
+### Codex (project installation)
+
+1. Download and extract this repository, or clone it with Git.
+2. Copy the entire `skills/microwave-spectroscopy-workflow/` folder, including `references/`, into your project’s `.agents/skills/` directory. The resulting entry point is `<project>/.agents/skills/microwave-spectroscopy-workflow/SKILL.md`.
+3. Open that project in Codex and start a new chat. Select `microwave-spectroscopy-workflow` from the skill picker. In the Codex CLI, use `/skills` to list skills.
+
+For a first task, ask the skill to check the rotational-constant units, conformer identifiers, and energy conventions in a calculation summary. Running SPFIT/SPCAT requires the executables described above.
+
+### Antigravity (plugin)
 
 ```shell
 git clone https://github.com/qiransy/microwave-spectroscopy-toolkit.git ~/.gemini/config/plugins/microwave-spectroscopy-toolkit
 ```
 
-See the [skill guide](skills/microwave-spectroscopy-workflow/README.md) for cross-agent setup. For general chemistry and materials writing/plotting skills, pair it with [chem-materials-research-kit](https://github.com/qiransy/chem-materials-research-kit).
+See the [skill guide](skills/microwave-spectroscopy-workflow/README.md#codex) for copy commands and verification. For general chemistry and materials writing/plotting skills, pair it with [chem-materials-research-kit](https://github.com/qiransy/chem-materials-research-kit).
 
 ## About this repository
 
@@ -78,4 +88,4 @@ Pickett Runner is the central project of this repository. Additional material on
 
 Maintained by [qiransy](https://github.com/qiransy).
 
-SPFIT and SPCAT were developed by H. M. Pickett. This repository provides a graphical companion tool. The original programs must be obtained separately. See the [user guide](pickett-runner/README.en.md#reference) for the publication reference.
+SPFIT and SPCAT were developed by H. M. Pickett. This repository provides a graphical companion tool. The original programs must be obtained separately. See the [user guide](pickett-runner/README.en.md#references) for the publication reference.

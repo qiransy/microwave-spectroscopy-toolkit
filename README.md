@@ -36,6 +36,8 @@ Pickett Runner 由 [qiransy](https://github.com/qiransy) 开发，用于简化�
 
 `实验谱 + 初始预测 → LLWP 归属 → LIN → SPFIT 拟合 → SPCAT 预测 → current.cat → 继续归属`
 
+谱线归属使用 LLWP。安装、导入实验谱与 CAT 文件、导出 LIN 线表可参照 [LLWP 官方使用指南](https://llwp.astro.uni-koeln.de/docs.html)。软件论文见 [Bonah 等，2022](https://doi.org/10.1016/j.jms.2022.111674)。
+
 <div align="center">
   <img src="pickett-runner/screenshots/01-input.png" width="900" alt="Pickett Runner 的 LIN、PAR、INT 输入配置">
   <br>
@@ -57,20 +59,28 @@ python pickett_runner.py
 
 ## AI 科研工作流技能（Agent Skill）
 
-本仓库同时内置了一套面向气相微波转动光谱的开放 AI Agent 领域技能 [`microwave-spectroscopy-workflow`](skills/microwave-spectroscopy-workflow/SKILL.md)（支持 Antigravity、Codex、Cursor、Claude Code 等平台），用于规范化辅助：
+本仓库同时内置了一套面向气相微波转动光谱的开放 AI Agent 领域技能 [`microwave-spectroscopy-workflow`](skills/microwave-spectroscopy-workflow/SKILL.md)，用于规范化辅助：
 
 - 气相转动光谱、团簇与微溶剂化的文献调研与 [Zotero 标签管理](skills/microwave-spectroscopy-workflow/references/zotero-profile.md)；
 - CREST / Gaussian / ORCA 构象计算结果整理（保留原始编号与能量口径，不替研究者擅自筛选候选）；
 - 理论转动常数/偶极矩/核四极张量与 SPFIT/SPCAT（Pickett Runner）拟合结果的规范对照；
 - 组会进展报告、论文指认证据边界审查与图表专业表达。
 
-**快速安装（Antigravity 插件）**：
+### Codex（项目级安装）
+
+1. 下载并解压本仓库，或用 Git 克隆。
+2. 将完整的 `skills/microwave-spectroscopy-workflow/` 文件夹复制到课题目录的 `.agents/skills/`，保留其中的 `references/`。最终入口为 `<课题目录>/.agents/skills/microwave-spectroscopy-workflow/SKILL.md`。
+3. 在 Codex 中打开该课题目录并开启新对话，从 Skill 选择器选用 `microwave-spectroscopy-workflow`。CLI 中可用 `/skills` 查看。
+
+可以先请 Codex 用这个 Skill 核对一份计算结果的转动常数单位、构象编号和能量口径。运行 SPFIT/SPCAT 仍需按上方说明单独准备程序。
+
+### Antigravity（插件）
 
 ```shell
 git clone https://github.com/qiransy/microwave-spectroscopy-toolkit.git ~/.gemini/config/plugins/microwave-spectroscopy-toolkit
 ```
 
-更多跨平台安装方式见 [技能使用说明](skills/microwave-spectroscopy-workflow/README.md)；如需搭配通用化学/材料论文读写与绘图技能，可配合使用 [chem-materials-research-kit](https://github.com/qiransy/chem-materials-research-kit)。
+复制命令和验证步骤见 [技能使用说明](skills/microwave-spectroscopy-workflow/README.md#codex)。如需搭配通用化学/材料论文读写与绘图技能，可配合使用 [chem-materials-research-kit](https://github.com/qiransy/chem-materials-research-kit)。
 
 ## 关于本仓库
 
