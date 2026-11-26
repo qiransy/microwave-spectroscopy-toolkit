@@ -1,15 +1,64 @@
-# Microwave Spectroscopy
+<div align="center">
 
-Tools, workflows and learning resources for microwave and rotational spectroscopy, maintained by [qiransy](https://github.com/qiransy).
+# Pickett Runner
 
-## Projects
+**微波转动光谱 · 一键拟合与预测**
 
-| Project | Description |
+Windows 图形化辅助工具｜SPFIT + SPCAT｜Python · Tkinter
+
+简体中文 · [English](README.en.md)
+
+</div>
+
+Pickett Runner 由 [qiransy](https://github.com/qiransy) 开发，用于简化转动光谱中的迭代解谱流程。你可以在一个窗口中选择实验归属与模型文件、运行 SPFIT 拟合，再自动调用 SPCAT 生成新的预测谱，并将结果交回 LLWP 进行下一轮谱线归属。
+
+## 实战展示
+
+下面的界面来自 Homo-3 隧穿体系的实际解谱过程。经过 33 轮迭代，最终拟合 153 条归属谱线，微波 RMS 为 **4.251 kHz**。
+
+<div align="center">
+  <img src="pickett-runner/screenshots/02-results.png" width="900" alt="Pickett Runner 多轮拟合记录和逐线残差">
+  <br>
+  <sub>记录与结果界面。列表展示最近的拟合轮次，下方为第 004 轮的逐线拟合报告。</sub>
+</div>
+
+## 核心功能
+
+| 功能 | 解谱中的用途 |
 | --- | --- |
-| [Pickett Runner](pickett-runner/) | A Windows desktop interface for SPFIT and SPCAT that supports iterative line assignment, fitting, prediction and per-project run history. |
+| **一键拟合与预测** | 支持 SPFIT → SPCAT 联合运行，也可单独拟合或预测。 |
+| **模型与线表管理** | 独立选择 LIN、PAR、INT 和 VAR；编辑本轮参数副本。 |
+| **项目隔离与历史记录** | 归档每轮输入、原始 FIT 报告、VAR 与 CAT，便于回溯和对比结果。 |
+| **拟合结果检查** | 查看 RMS、逐线残差、参数及形式误差，辅助判断下一步拟合方向。 |
+| **更新预测谱** | 预测成功后可刷新项目中的 current.cat，供 LLWP 下一轮归属使用。 |
 
-Each project is kept in its own directory with its own usage instructions.
+## 如何使用
 
-## 微波光谱
+`实验谱 + 初始预测 → LLWP 归属 → LIN → SPFIT 拟合 → SPCAT 预测 → current.cat → 继续归属`
 
-本仓库用于整理微波光谱、转动光谱相关的辅助工具、实战流程与学习资料。当前项目为 [Pickett Runner](pickett-runner/)，后续内容可以独立添加。
+<div align="center">
+  <img src="pickett-runner/screenshots/01-input.png" width="900" alt="Pickett Runner 的 LIN、PAR、INT 输入配置">
+  <br>
+  <sub>运行与输入界面。选择归属线表、拟合模型及预测设置即可开始本轮计算。</sub>
+</div>
+
+1. 在 Windows 安装带有 Tkinter 的 Python 3.10 或更高版本。
+2. 下载本仓库，将独立获取的 spfit.exe 和 spcat.exe 放在 pickett-runner 目录内。
+3. 双击脚本或在该目录运行以下命令。
+
+```shell
+python pickett_runner.py
+```
+
+4. 在软件中选择项目目录与 LIN、PAR、INT 文件，运行「拟合并更新预测谱」。
+5. 查看记录与结果，然后在 LLWP 中加载更新后的 current.cat。
+
+进入 [Pickett Runner 使用说明](pickett-runner/README.md) 查看详细操作与文件管理方式，也可以直接 [查看源代码](pickett-runner/pickett_runner.py)。
+
+## 关于本仓库
+
+本仓库以 Pickett Runner 为核心，后续会逐步加入与微波转动光谱相关的解谱实践、理论背景及学习资料，为软件的实际使用提供技术背景。
+
+维护者：[qiransy](https://github.com/qiransy)
+
+SPFIT 和 SPCAT 由 H. M. Pickett 开发。本仓库提供图形化辅助工具，原程序需要独立获取。相关文献信息见 [使用说明](pickett-runner/README.md#参考文献)。

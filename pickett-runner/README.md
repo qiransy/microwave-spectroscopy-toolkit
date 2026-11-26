@@ -1,43 +1,64 @@
-# Pickett Runner
+# Pickett Runner 使用说明
 
-A lightweight Windows desktop interface for Pickett's SPFIT and SPCAT programs, intended for iterative rotational spectroscopy assignments. The interface is currently in Chinese.
+[仓库首页](../README.md) · 简体中文 · [English](README.en.md)
 
-## Features
+Pickett Runner 是用于 Pickett SPFIT 和 SPCAT 的 Windows 图形化辅助工具，使用 Python 标准库 Tkinter 开发。当前软件界面为简体中文，适合与 LLWP 等谱线归属工具配合。
 
-- Run fitting, prediction or both in sequence.
-- Select Pickett LIN, PAR, INT and VAR files independently.
-- Edit working copies of PAR and INT without overwriting the source files.
-- Save input snapshots, original reports and per-project run history.
-- Inspect line residuals, RMS and parameter results.
-- Refresh current.cat after successful prediction for use in tools such as LLWP.
+## 运行方式
 
-## Screenshots
+| 模式 | 输入文件 | 输出与用途 |
+| --- | --- | --- |
+| 拟合并更新预测谱 | LIN、PAR、INT | SPFIT 拟合后立即调用 SPCAT，得到新的 CAT。 |
+| 只拟合 | LIN、PAR | 查看拟合报告和更新后的模型参数。 |
+| 只预测 | VAR、INT | 根据现有参数计算预测线表。 |
 
-The screenshots below show an actual iterative assignment of the Homo-3 rotational spectrum, with two tunneling states.
+## 安装与快速上手
 
-**Input configuration** — 153 assigned lines, a 14-parameter model, and the option to update the prediction after SPFIT.
+1. 安装 Windows 版 Python 3.10 或更高版本，并确保安装 Tkinter。
+2. 从原程序的合法来源获取 SPFIT 和 SPCAT，将 spfit.exe、spcat.exe 放到本目录（也支持放在上一级目录）。
+3. 运行以下命令打开软件。
 
-![Input configuration](screenshots/01-input.png)
+```shell
+python pickett_runner.py
+```
 
-**Run history and detailed results** — 33 fitting rounds, with the latest fit of 153 lines reaching a microwave RMS of 4.251 kHz. The detailed report shown is from round 004, illustrating line-by-line residuals, fitted parameters and the generated catalog.
+也可以使用 pythonw.exe 启动脚本，以免显示命令行窗口。
 
-![Run history and detailed results](screenshots/02-results.png)
+4. 选择一个已有的项目目录，按照运行模式指定 LIN、PAR、INT 或 VAR。
+5. 查看输入记录数、重复记录和量子数检查结果，根据需要编辑本轮 PAR 或 INT 副本。
+6. 点击「运行」。完成后进入「记录与结果」，检查 RMS、逐线残差和参数结果。
+7. 若启用了「预测成功后更新项目中的 current.cat」，将新的 CAT 加载至 LLWP 进行下一批谱线归属。
 
-## Quick start / 快速开始
+## 界面示例
 
-1. Install Python 3.10 or later with Tkinter on Windows.
-2. Obtain SPFIT and SPCAT separately from their legitimate distribution source. Place spfit.exe and spcat.exe beside pickett_runner.py (the parent directory is also supported for the existing installation layout).
-3. Run `python pickett_runner.py` or use `pythonw.exe` to start without a console window.
-4. Choose an existing project directory and the appropriate input files. Choose 拟合并更新预测谱 (fit and predict), 只拟合 (fit only), or 只预测 (predict only).
-5. Inspect the results in 记录与结果 (run history and results). Successful predictions can update current.cat in the project directory.
+以下为 Homo-3 两个隧穿态的实际解谱记录。
 
-每轮运行的输入快照和输出保存在项目内的“运行记录”目录，不覆盖初始输入。程序依据 Pickett 文件格式工作，可与 LLWP 等归属工具配合。
+### 运行与输入
 
-## Third-party programs
+![运行与输入](screenshots/01-input.png)
 
-SPFIT and SPCAT are separate programs developed by H. M. Pickett. This repository contains the runner interface and does not redistribute those executables. Consult the original program documentation for parameter codes and model definitions.
+当前项目的线表含有 153 条记录，模型含有 14 个参数。每个能级使用 4 个量子数标签。
 
-## Citation
+### 记录与结果
+
+![记录与结果](screenshots/02-results.png)
+
+共 33 轮拟合，最后一轮的微波 RMS 为 4.251 kHz。下方逐线报告展示第 004 轮的实测频率、计算频率、残差和参数，以及本轮生成的 CAT 数量。
+
+## 文件与项目管理
+
+- 每个项目在自己的「运行记录」目录保存输入快照、拟合文件、预测文件和运行日志。
+- 编辑 PAR、INT 时采用本轮工作副本，初始输入文件保留。
+- 在历史记录中可以沿用成功拟合的 PAR、以指定轮次的输入为起点，或比较两轮结果。
+- 检查每态量子数个数是可选的。完全重复记录会提示，同频不同量子数记录可用于进一步核对。
+- 只有预测成功并勾选更新选项时才会发布 current.cat。
+
+## 第三方程序
+
+SPFIT 和 SPCAT 由 H. M. Pickett 开发。本仓库包含辅助界面源代码及图标等材料，SPFIT 与 SPCAT 可执行文件需独立获取。参数编码和具体哈密顿量定义请参照原程序文档。
+
+## 参考文献
 
 H. M. Pickett, *The fitting and prediction of vibration-rotation spectra with spin interactions*, Journal of Molecular Spectroscopy **148**, 371–377 (1991).
 
+维护者：[qiransy](https://github.com/qiransy)
