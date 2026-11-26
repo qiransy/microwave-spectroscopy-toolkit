@@ -55,6 +55,23 @@ python pickett_runner.py
 
 See the [Pickett Runner user guide](pickett-runner/README.en.md) for details, or view the [source code](pickett-runner/pickett_runner.py).
 
+## AI Research Workflow Skill (Agent Skill)
+
+This repository also includes an open-format AI agent domain skill, [`microwave-spectroscopy-workflow`](skills/microwave-spectroscopy-workflow/SKILL.md) (compatible with Antigravity, Codex, Cursor, and Claude Code), designed to support:
+
+- Literature search and [Zotero tagging](skills/microwave-spectroscopy-workflow/references/zotero-profile.md) for gas-phase rotational spectroscopy, molecular clusters, and microsolvation;
+- Organizing CREST / Gaussian / ORCA conformer calculations while preserving original identifiers and energy conventions;
+- Comparing calculated rotational constants, dipole components, and nuclear quadrupole tensors against SPFIT / SPCAT (Pickett Runner) fits;
+- Progress reports, assignment evidence audits, and manuscript/figure presentation.
+
+**Quick install (Antigravity plugin)**:
+
+```shell
+git clone https://github.com/qiransy/microwave-spectroscopy-toolkit.git ~/.gemini/config/plugins/microwave-spectroscopy-toolkit
+```
+
+See the [skill guide](skills/microwave-spectroscopy-workflow/README.md) for cross-agent setup. For general chemistry and materials writing/plotting skills, pair it with [chem-materials-research-kit](https://github.com/qiransy/chem-materials-research-kit).
+
 ## About this repository
 
 Pickett Runner is the central project of this repository. Additional material on microwave rotational spectroscopy, assignment practice and the theoretical background will accompany the software as supporting resources.

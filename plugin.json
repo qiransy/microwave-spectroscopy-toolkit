@@ -1,0 +1,12 @@
+{
+  "name": "microwave-spectroscopy-toolkit",
+  "displayName": "Microwave Spectroscopy Toolkit",
+  "version": "1.0.0",
+  "description": "Domain workflow skill for gas-phase microwave rotational spectroscopy: literature search, CREST/Gaussian/ORCA result organization, theory-experiment parameter comparison (SPFIT/SPCAT/PGOPHER), progress reporting, and evidence review.",
+  "repository": "https://github.com/qiransy/microwave-spectroscopy-toolkit",
+  "suggestedPrompts": [
+    "整理这批 CREST/Gaussian/ORCA 构象计算结果，按相对能量升序排列并保留原始编号",
+    "对照理论转动常数 A/B/C 与 SPFIT 拟合结果，检查偏差口径与主轴约定",
+    "从微波转动光谱角度审查这篇团簇论文的指认证据与结论边界"
+  ]
+}

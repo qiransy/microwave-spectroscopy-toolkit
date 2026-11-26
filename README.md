@@ -55,6 +55,23 @@ python pickett_runner.py
 
 进入 [Pickett Runner 使用说明](pickett-runner/README.md) 查看详细操作与文件管理方式，也可以直接 [查看源代码](pickett-runner/pickett_runner.py)。
 
+## AI 科研工作流技能（Agent Skill）
+
+本仓库同时内置了一套面向气相微波转动光谱的开放 AI Agent 领域技能 [`microwave-spectroscopy-workflow`](skills/microwave-spectroscopy-workflow/SKILL.md)（支持 Antigravity、Codex、Cursor、Claude Code 等平台），用于规范化辅助：
+
+- 气相转动光谱、团簇与微溶剂化的文献调研与 [Zotero 标签管理](skills/microwave-spectroscopy-workflow/references/zotero-profile.md)；
+- CREST / Gaussian / ORCA 构象计算结果整理（保留原始编号与能量口径，不替研究者擅自筛选候选）；
+- 理论转动常数/偶极矩/核四极张量与 SPFIT/SPCAT（Pickett Runner）拟合结果的规范对照；
+- 组会进展报告、论文指认证据边界审查与图表专业表达。
+
+**快速安装（Antigravity 插件）**：
+
+```shell
+git clone https://github.com/qiransy/microwave-spectroscopy-toolkit.git ~/.gemini/config/plugins/microwave-spectroscopy-toolkit
+```
+
+更多跨平台安装方式见 [技能使用说明](skills/microwave-spectroscopy-workflow/README.md)；如需搭配通用化学/材料论文读写与绘图技能，可配合使用 [chem-materials-research-kit](https://github.com/qiransy/chem-materials-research-kit)。
+
 ## 关于本仓库
 
 本仓库以 Pickett Runner 为核心，后续会逐步加入与微波转动光谱相关的解谱实践、理论背景及学习资料，为软件的实际使用提供技术背景。
