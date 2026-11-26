@@ -36,6 +36,8 @@ Pickett Runner 由 [qiransy](https://github.com/qiransy) 开发，用于简化�
 
 `实验谱 + 初始预测 → LLWP 归属 → LIN → SPFIT 拟合 → SPCAT 预测 → current.cat → 继续归属`
 
+谱线归属使用 LLWP。安装、导入实验谱与 CAT 文件、导出 LIN 线表可参照 [LLWP 官方使用指南](https://llwp.astro.uni-koeln.de/docs.html)。软件论文见 [Bonah 等，2022](https://doi.org/10.1016/j.jms.2022.111674)。
+
 <div align="center">
   <img src="pickett-runner/screenshots/01-input.png" width="900" alt="Pickett Runner 的 LIN、PAR、INT 输入配置">
   <br>

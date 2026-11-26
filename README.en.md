@@ -36,6 +36,8 @@ The screenshots show an actual assignment of the two-state tunneling system Homo
 
 `Experimental spectrum + initial prediction → LLWP assignment → LIN → SPFIT fit → SPCAT prediction → current.cat → next assignment round`
 
+This workflow uses LLWP for line assignment. See the [official LLWP guide](https://llwp.astro.uni-koeln.de/docs.html) for installation, importing spectra and CAT predictions, and saving LIN assignments. LLWP is described in [Bonah et al. (2022)](https://doi.org/10.1016/j.jms.2022.111674).
+
 <div align="center">
   <img src="pickett-runner/screenshots/01-input.png" width="900" alt="Pickett Runner LIN, PAR and INT input settings">
   <br>
@@ -86,4 +88,4 @@ Pickett Runner is the central project of this repository. Additional material on
 
 Maintained by [qiransy](https://github.com/qiransy).
 
-SPFIT and SPCAT were developed by H. M. Pickett. This repository provides a graphical companion tool. The original programs must be obtained separately. See the [user guide](pickett-runner/README.en.md#reference) for the publication reference.
+SPFIT and SPCAT were developed by H. M. Pickett. This repository provides a graphical companion tool. The original programs must be obtained separately. See the [user guide](pickett-runner/README.en.md#references) for the publication reference.

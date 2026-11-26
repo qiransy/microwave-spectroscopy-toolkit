@@ -29,6 +29,8 @@ Alternatively, use pythonw.exe to launch without a console window.
 6. Click Run (运行). On completion, open Run History and Results (记录与结果) to inspect RMS, individual residuals and fitted parameters.
 7. If automatic publication is enabled, load the updated current.cat in LLWP for the next assignment round.
 
+See the [official LLWP guide](https://llwp.astro.uni-koeln.de/docs.html) for installation, loading spectra and line lists, and saving assignments.
+
 ## Screenshots
 
 The example below shows actual iterative assignments for the two-state tunneling system Homo-3.
@@ -57,8 +59,10 @@ The history contains 33 fitting rounds, with a final microwave RMS of 4.251 kHz.
 
 SPFIT and SPCAT were developed by H. M. Pickett. This repository contains the graphical companion tool, source code and icon. Obtain the original executables separately. Consult the original program documentation for parameter codes and Hamiltonian definitions.
 
-## Reference
+## References
 
 H. M. Pickett, *The fitting and prediction of vibration-rotation spectra with spin interactions*, Journal of Molecular Spectroscopy **148**, 371–377 (1991).
+
+L. Bonah, O. Zingsheim, H. S. P. Müller, J.-C. Guillemin, F. Lewen, S. Schlemmer, [*LLWP—A new Loomis-Wood software at the example of Acetone-13C1*](https://doi.org/10.1016/j.jms.2022.111674), Journal of Molecular Spectroscopy **388**, 111674 (2022).
 
 Maintained by [qiransy](https://github.com/qiransy).

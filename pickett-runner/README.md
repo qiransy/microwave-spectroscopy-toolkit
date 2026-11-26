@@ -29,6 +29,8 @@ python pickett_runner.py
 6. 点击「运行」。完成后进入「记录与结果」，检查 RMS、逐线残差和参数结果。
 7. 若启用了「预测成功后更新项目中的 current.cat」，将新的 CAT 加载至 LLWP 进行下一批谱线归属。
 
+LLWP 的安装、谱图与线表导入、归属及保存见 [LLWP 官方使用指南](https://llwp.astro.uni-koeln.de/docs.html)。
+
 ## 界面示例
 
 以下为 Homo-3 两个隧穿态的实际解谱记录。
@@ -60,5 +62,7 @@ SPFIT 和 SPCAT 由 H. M. Pickett 开发。本仓库包含辅助界面源代码�
 ## 参考文献
 
 H. M. Pickett, *The fitting and prediction of vibration-rotation spectra with spin interactions*, Journal of Molecular Spectroscopy **148**, 371–377 (1991).
+
+L. Bonah, O. Zingsheim, H. S. P. Müller, J.-C. Guillemin, F. Lewen, S. Schlemmer, [*LLWP—A new Loomis-Wood software at the example of Acetone-13C1*](https://doi.org/10.1016/j.jms.2022.111674), Journal of Molecular Spectroscopy **388**, 111674 (2022).
 
 维护者：[qiransy](https://github.com/qiransy)
