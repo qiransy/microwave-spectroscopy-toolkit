@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*.exe
+*.lin
+*.par
+*.var
+*.int
+*.cat
+*.fit
+*.out
+*.bak
+*.log
+运行记录/
+projects.json
