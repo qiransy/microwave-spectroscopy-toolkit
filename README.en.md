@@ -57,20 +57,28 @@ See the [Pickett Runner user guide](pickett-runner/README.en.md) for details, or
 
 ## AI Research Workflow Skill (Agent Skill)
 
-This repository also includes an open-format AI agent domain skill, [`microwave-spectroscopy-workflow`](skills/microwave-spectroscopy-workflow/SKILL.md) (compatible with Antigravity, Codex, Cursor, and Claude Code), designed to support:
+This repository also includes an open-format AI agent domain skill, [`microwave-spectroscopy-workflow`](skills/microwave-spectroscopy-workflow/SKILL.md), designed to support:
 
 - Literature search and [Zotero tagging](skills/microwave-spectroscopy-workflow/references/zotero-profile.md) for gas-phase rotational spectroscopy, molecular clusters, and microsolvation;
 - Organizing CREST / Gaussian / ORCA conformer calculations while preserving original identifiers and energy conventions;
 - Comparing calculated rotational constants, dipole components, and nuclear quadrupole tensors against SPFIT / SPCAT (Pickett Runner) fits;
 - Progress reports, assignment evidence audits, and manuscript/figure presentation.
 
-**Quick install (Antigravity plugin)**:
+### Codex (project installation)
+
+1. Download and extract this repository, or clone it with Git.
+2. Copy the entire `skills/microwave-spectroscopy-workflow/` folder, including `references/`, into your project’s `.agents/skills/` directory. The resulting entry point is `<project>/.agents/skills/microwave-spectroscopy-workflow/SKILL.md`.
+3. Open that project in Codex and start a new chat. Select `microwave-spectroscopy-workflow` from the skill picker. In the Codex CLI, use `/skills` to list skills.
+
+For a first task, ask the skill to check the rotational-constant units, conformer identifiers, and energy conventions in a calculation summary. Running SPFIT/SPCAT requires the executables described above.
+
+### Antigravity (plugin)
 
 ```shell
 git clone https://github.com/qiransy/microwave-spectroscopy-toolkit.git ~/.gemini/config/plugins/microwave-spectroscopy-toolkit
 ```
 
-See the [skill guide](skills/microwave-spectroscopy-workflow/README.md) for cross-agent setup. For general chemistry and materials writing/plotting skills, pair it with [chem-materials-research-kit](https://github.com/qiransy/chem-materials-research-kit).
+See the [skill guide](skills/microwave-spectroscopy-workflow/README.md#codex) for copy commands and verification. For general chemistry and materials writing/plotting skills, pair it with [chem-materials-research-kit](https://github.com/qiransy/chem-materials-research-kit).
 
 ## About this repository
 
